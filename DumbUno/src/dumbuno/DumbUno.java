@@ -41,7 +41,12 @@ public class DumbUno
         current = startPlayer;
         while (current.getData() > 1)
         {
-            //Student implementation
+            if (current.getData()==1){
+                System.out.println("UNO!");
+            }
+            current.setData(current.getData()-1);//subtract 1 from the curr player card count
+            current=current.getNext();//move on to next player
+//Student implementation
         }
         System.out.println("I win!");
         
@@ -50,14 +55,16 @@ public class DumbUno
     private static void printGame(IntNode startPlayer)
     {
         IntNode current = startPlayer;
+        do{
         System.out.print(current.getData());
         current = current.getNext();
-        while (current != startPlayer)
-        {
-            System.out.print("->" + current.getData());
-            current = current.getNext();
-        }
+        if(current != startPlayer){
+            System.out.print("->" );
+            }
+        }while (current != startPlayer);
+        
         System.out.println();
-    }
     
+    
+}
 }
